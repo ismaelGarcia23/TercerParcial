@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcial</title>
+    <link rel="stylesheet" href='{% static "css/estilos.css" %}'>
+</head>
+<body>
+    <header class="contenedor">
+        <div>
+            <img class="img1" src="{% static 'imgs/header.jpg' %}" alt="">
+        </div>
+        <div>
+            <img class="img2" src="{% static 'imgs/img2.jpeg' %}" alt="">
+        </div>
+    </header>
+    <nav>
+        {% for item in menu_items %}
+                <a href="#">{{ item.valor }}</a>
+            {% endfor %}
+    </nav>
+    <section class="main">
+        <div class="content1">
+          <form action="" onsubmit="return validarClave()">
+            <fieldset class="fiel1">
+                <h2 class="init"><u>Inicie Sesion</u></h2>
+                <label>CORREO:</label> <br>
+                <input class="taminput" type="text" placeholder="Ej: gh22i04001@usonsonate.edu.sv"><br><br>
+                <label>EXPEDIENTE:</label><br>
+                <input class="taminput" type="text" placeholder="25755"> <br><br>
+                <label for="clave">CLAVE:</label><br>
+                <input id="clave" class="taminput" type="password" placeholder="Escribe una clave"><br><br>
+                <label for="confirmarClave">CONFIRMAR CLAVE:</label><br>
+                <input id="confirmarClave" class="taminput" type="password" placeholder="Confirmar clave"><br><br>
+                <input type="submit" value="Entrar" class="tamimput2"> <br> 
+            </fieldset> <br>
+          </form>
+          <img class="tamIcons" src="iconos/antenna-with-signal-transmission_icon-icons.com_56571.ico" alt="">
+          <img class="tamIcons" src="iconos/bookstack_libr_3024.ico" alt="">
+          <img class="tamIcons" src="iconos/antenna-with-signal-transmission_icon-icons.com_56571.ico" alt="">
+        </div>
+
+        <div class="content2">
+            {% for item in vision_mision_items %}
+              <h2>{{ item.tema }}</h2>
+              <p>{{ item.descripcion }}</p>
+
+           {% endfor %}
+        </div>
+        <br>
+        <br>
+        <div class="content3">
+            <fieldset class="disenT">
+                <fieldset class="ofert">
+                    Oferta Academica
+                </fieldset>
+                {% for facultad, programas in programas_por_facultad.items %}
+                <h3>{{ facultad.nombre }}</h2>
+                <ul>
+                    {% for programa in programas %}
+                        <li>{{ programa.nombre }}</li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+
+            </fieldset>
+        </div>
+    </section>
+    <footer>
+        Universidad de sonsonate
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem aperiam quisquam facere, debitis laborum labore tenetur. Ullam quibusdam culpa impedit animi incidunt saepe ad optio in, asperiores delectus totam quo.</p>
+    </footer>
+
+
+    <script src="main.js"></script>
+</body>
+</html>
